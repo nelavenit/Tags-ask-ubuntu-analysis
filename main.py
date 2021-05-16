@@ -26,5 +26,4 @@ for line in edge_degree_list.readlines():
             else:
                 if not G.has_edge(u, v):
                     G.add_edge(u, v, weight=1)
-if G.has_edge(1, 4):
-    print(G[1][4]["weight"])
+
