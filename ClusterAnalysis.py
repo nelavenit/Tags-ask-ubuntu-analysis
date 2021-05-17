@@ -24,3 +24,7 @@ def global_clustering_coefficient(g):
 
 def average_clustering_coefficient(g):
     return nx.algorithms.cluster.average_clustering(g)
+
+
+def local_clustering_coefficients_dict(g):
+    return nx.algorithms.cluster.clustering(g)
