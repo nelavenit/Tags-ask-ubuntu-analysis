@@ -4,3 +4,4 @@ weighing_mode = 1
 # 2 - weight of node += 1 / (number of tags connected bu a hyper edge)
 total_number_of_nodes = 3029
 maximum_edge_degree = 5
+graphics_margins = 0.1
