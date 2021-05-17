@@ -17,6 +17,8 @@ def sizes_of_components(g, mode=1):
             components_sizes.append(0)
             while queue:
                 j = queue.pop()
+                if used[j]:
+                    continue
                 used[j] = True
                 components_sizes[component_number] += 1
                 component_marks[j] = component_number
