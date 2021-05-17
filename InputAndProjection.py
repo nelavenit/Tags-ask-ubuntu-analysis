@@ -1,9 +1,11 @@
 import networkx as nx
+
+import config
 from config import total_number_of_nodes
 from config import weighing_mode
 
 
-def input_and_project_whole_graph():
+def input_and_project_graph(max_edge_degree=config.total_number_of_nodes):
     edge_degree_list = open("Dataset/tags-ask-ubuntu-nverts.txt", "r")
     nodes_connected_by_edge = open("Dataset/tags-ask-ubuntu-simplices.txt", "r")
 
@@ -15,6 +17,11 @@ def input_and_project_whole_graph():
         for i in range(num_of_nodes):
             node = int(nodes_connected_by_edge.readline()[:-1:])
             list_of_nodes.append(node)
+
+        # We look only at edges connecting less than max_edge_degree nodes
+        if num_of_nodes > max_edge_degree:
+            continue
+
         for i in range(num_of_nodes):
             for j in range(i + 1, num_of_nodes):
                 u = list_of_nodes[i] - 1
