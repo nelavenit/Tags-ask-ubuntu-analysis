@@ -1,23 +1,30 @@
 # BFS
-def sizes_of_components(g):  # returns list of components sizes
+# 1 - returns list of components sizes, 2 - returns list showing which component node belongs to
+def sizes_of_components(g, mode=1):
     component_number = -1
     used = []
-    component = []
+    components_sizes = []
+    component_marks = []
     num = len(list(g.nodes))
     for i in range(num):
         used.append(False)
+        component_marks.append(0)
 
     for i in range(num):
         if not used[i]:
             component_number += 1
             queue = [i]
-            component.append(0)
+            components_sizes.append(0)
             while queue:
                 j = queue.pop()
                 used[j] = True
-                component[component_number] += 1
+                components_sizes[component_number] += 1
+                component_marks[j] = component_number
                 neighbors = list(g.neighbors(j))
                 for to in range(len(neighbors)):
                     if not used[neighbors[to]]:
                         queue.append(neighbors[to])
-    return component
+    if mode == 1:
+        return components_sizes
+    elif mode == 2:
+        return component_marks
