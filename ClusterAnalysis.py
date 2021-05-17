@@ -15,8 +15,6 @@ def global_clustering_coefficient(g):
     for i in range(num_of_nodes):
         for j in g.neighbors(i):
             for k in g.neighbors(j):
-                if i % 5 == 0 and k == 3011:
-                    print(i)
                 if k != i and g.has_edge(i, k):
                     number_of_closed_triplets += 1
     return number_of_closed_triplets / number_of_any_triplets
@@ -26,5 +24,5 @@ def average_clustering_coefficient(g):
     return nx.algorithms.cluster.average_clustering(g)
 
 
-def local_clustering_coefficients_dict(g):
-    return nx.algorithms.cluster.clustering(g)
+def local_clustering_coefficients_list(g):
+    return list(nx.algorithms.cluster.clustering(g).values())
