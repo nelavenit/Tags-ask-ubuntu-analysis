@@ -3,7 +3,7 @@ from config import total_number_of_nodes
 from config import weighing_mode
 
 
-def input_and_project_graph():
+def input_and_project_whole_graph():
     edge_degree_list = open("Dataset/tags-ask-ubuntu-nverts.txt", "r")
     nodes_connected_by_edge = open("Dataset/tags-ask-ubuntu-simplices.txt", "r")
 
@@ -24,7 +24,12 @@ def input_and_project_graph():
                         g[u][v]["weight"] += 1
                     else:
                         g.add_edge(u, v, weight=1)
-                else:
+                elif weighing_mode == 0:
                     if not g.has_edge(u, v):
                         g.add_edge(u, v, weight=1)
+                elif weighing_mode == 2:
+                    if g.has_edge(u, v):
+                        g[u][v]["weight"] += 1/num_of_nodes
+                    else:
+                        g.add_edge(u, v, weight=1/num_of_nodes)
     return g
