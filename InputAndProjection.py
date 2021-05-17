@@ -8,7 +8,7 @@ def input_and_project_whole_graph():
     nodes_connected_by_edge = open("Dataset/tags-ask-ubuntu-simplices.txt", "r")
 
     g = nx.Graph()
-    g.add_nodes_from(range(1, total_number_of_nodes + 1))
+    g.add_nodes_from(range(total_number_of_nodes))
     for line in edge_degree_list.readlines():
         num_of_nodes = int(line[:-1:])
         list_of_nodes = []  # List of nodes in edge
@@ -17,8 +17,8 @@ def input_and_project_whole_graph():
             list_of_nodes.append(node)
         for i in range(num_of_nodes):
             for j in range(i + 1, num_of_nodes):
-                u = list_of_nodes[i]
-                v = list_of_nodes[j]
+                u = list_of_nodes[i] - 1
+                v = list_of_nodes[j] - 1
                 if weighing_mode == 1:
                     if g.has_edge(u, v):
                         g[u][v]["weight"] += 1
