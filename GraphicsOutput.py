@@ -46,9 +46,12 @@ def global_clustering_coefficient_maturation(mode="auto-scale", weighted=False, 
     if mode == "from zero to one":
         plt.axis([2 - cfg.graphics_margins, cfg.maximum_edge_degree + cfg.graphics_margins,
                   -cfg.graphics_margins, 1 + cfg.graphics_margins])
-    plt.xlabel("Maximum edge degree")
-    plt.ylabel("Global clustering coefficient")
-    plt.title("Global clustering coefficient maturation")
+    if not weighted:
+        plt.ylabel("Global clustering coefficient")
+        plt.title("Global clustering coefficient maturation")
+    else:
+        plt.ylabel("Global clustering coefficient of weighted projection")
+        plt.title("Global clustering coefficient  of weighted projection maturation")
     plt.show()
 
 
