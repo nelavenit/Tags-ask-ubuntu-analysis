@@ -29,11 +29,14 @@ def global_clustering_coefficient_for_weighted_projection(g, mode="arithmetic me
 
     # computing both total_triplets_value and total_closed_triplets_value
     for i in range(num_of_nodes):
-        num_of_neighbors = len(g.neighbors(i))
-        for j in range(num_of_neighbors):
-            for k in range(j + 1, num_of_neighbors):
-                u = g.neighbors(i)[j]
-                v = g.neighbors(i)[k]
+        if i % 5 == 0:
+            print(i)
+        num_of_neighbors = len(list(g.neighbors(i)))
+        for u in g.neighbors(i):
+            for v in g.neighbors(i):
+                if u <= v:
+                    pass
+
                 num_of_edges = 2
                 if g.has_edge(u, v):
                     num_of_edges = 3
