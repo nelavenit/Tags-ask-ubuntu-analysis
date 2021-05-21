@@ -31,9 +31,9 @@ def global_clustering_coefficient_for_weighted_projection(g, mode="arithmetic me
     for i in range(num_of_nodes):
         if i % 5 == 0:
             print(i)
-        num_of_neighbors = len(list(g.neighbors(i)))
         for u in g.neighbors(i):
             for v in g.neighbors(i):
+                # not to compute twice (u,v) and (v, u)
                 if u <= v:
                     pass
 
