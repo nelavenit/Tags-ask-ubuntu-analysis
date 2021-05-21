@@ -1,10 +1,13 @@
 import networkx as nx
 import ClusterAnalysis
-import GraphicsOutput
+import MaturationOutput
 import InputAndProjection
 import ComponentsAnalysis
 import ClusterAnalysis as Cluster
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-print(GraphicsOutput.global_clustering_coefficient_maturation("from zero to one", True, "arithmetic mean"))
+file = open("output.txt", "w")
+ls = MaturationOutput.global_clustering_coefficient_maturation(True, "arithmetic mean")
+for element in ls:
+    file.write(str(element) + '\n')
