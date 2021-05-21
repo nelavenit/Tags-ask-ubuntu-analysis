@@ -4,4 +4,4 @@ weighing_mode = 2
 # 2 - weight of node += 1 / (number of tags connected by a hyper edge)
 total_number_of_nodes = 3029
 maximum_edge_degree = 5
-default_plot_margin = 0.05
+default_plot_margin = 0.1
