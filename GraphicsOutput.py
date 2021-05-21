@@ -31,13 +31,14 @@ def largest_component_size_maturation():
     plt.show()
 
 
-def global_clustering_coefficient_maturation(mode=1):  # 1 - auto-scale  2 - y interval is [0, 1]
+# Either "auto-scale"  or "from zero to one" for the interval of [0, 1]
+def global_clustering_coefficient_maturation(mode="auto-scale"):
     ls = []
     for max_deg in range(2, cfg.maximum_edge_degree + 1):
         g = InputAndProjection.input_and_project_graph(max_deg)
         ls.append(ClusterAnalysis.global_clustering_coefficient(g))
     plt.plot(range(2, cfg.maximum_edge_degree + 1), ls, 'o--r')
-    if mode == 2:
+    if mode == "from zero to one":
         plt.axis([2 - cfg.graphics_margins, cfg.maximum_edge_degree + cfg.graphics_margins,
                   -cfg.graphics_margins, 1 + cfg.graphics_margins])
     plt.xlabel("Maximum edge degree")
@@ -46,13 +47,14 @@ def global_clustering_coefficient_maturation(mode=1):  # 1 - auto-scale  2 - y i
     plt.show()
 
 
-def average_clustering_coefficient_maturation(mode=1):  # 1 - auto-scale  2 - y interval is [0, 1]
+# Either "auto-scale"  or "from zero to one" for the interval of [0, 1]
+def average_clustering_coefficient_maturation(mode="auto-scale"):
     ls = []
     for max_deg in range(2, cfg.maximum_edge_degree + 1):
         g = InputAndProjection.input_and_project_graph(max_deg)
         ls.append(ClusterAnalysis.average_clustering_coefficient(g))
     plt.plot(range(2, cfg.maximum_edge_degree + 1), ls, 'o--r')
-    if mode == 2:
+    if mode == "from zero to one":
         plt.axis([2 - cfg.graphics_margins, cfg.maximum_edge_degree + cfg.graphics_margins,
                   -cfg.graphics_margins, 1 + cfg.graphics_margins])
     plt.xlabel("Maximum edge degree")
