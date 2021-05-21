@@ -53,7 +53,7 @@ def global_clustering_coefficient_for_weighted_projection(g, mode="arithmetic me
                     if num_of_edges == 2:
                         total_triplets_value += 2 * math.sqrt(g[i][u]["weight"] * g[i][v]["weight"])
                     if num_of_edges == 3:
-                        value = (g[i][u]["weight"] * g[i][v]["weight"] * g[u][v]["weight"]) ** 1/3
+                        value = (g[i][u]["weight"] * g[i][v]["weight"] * g[u][v]["weight"]) ** (1/3)
                         total_triplets_value += value
                         total_closed_triplets_value += value
 
